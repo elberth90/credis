@@ -1189,6 +1189,8 @@ class Credis_Client {
         if($reply === FALSE) {
             $info = stream_get_meta_data($this->redis);
             if ($info['timed_out']) {
+                $this->close();
+                $this->connected = FALSE;
                 throw new CredisException('Read operation timed out.', CredisException::CODE_TIMED_OUT);
             } else {
                 $this->connected = FALSE;
