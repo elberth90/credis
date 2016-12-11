@@ -327,8 +327,12 @@ class CredisTest extends PHPUnit_Framework_TestCase
       $this->assertInstanceOf('Credis_Client',$this->credis->connect());
       $this->assertTrue($this->credis->set('key','value'));
       $this->credis->close();
+
+      $this->expectException(CredisException::class);
+      $this->expectExceptionMessage('invalid password');
       $this->credis = new Credis_Client($this->config[4]->host, $this->config[4]->port, $this->config[4]->timeout,false,0,'wrongpassword');
       $this->credis->connect();
+
       $this->assertFalse($this->credis->set('key','value'));
       $this->assertFalse($this->credis->auth('anotherwrongpassword'));
       $this->assertTrue($this->credis->auth('thepassword'));
