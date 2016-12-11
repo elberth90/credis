@@ -23,7 +23,8 @@ class CredisStandaloneClusterTest extends CredisClusterTest
     $this->assertTrue($this->cluster->client('master')->set('key','value'));
     $this->assertEquals('value',$this->cluster->client('slave')->get('key'));
     $this->assertEquals('value',$this->cluster->get('key'));
-    $this->setExpectedException('CredisException','READONLY You can\'t write against a read only slave.');
+    $this->expectException(CredisException::class);
+    $this->expectExceptionMessage('READONLY You can\'t write against a read only slave.');
     $this->cluster->client('slave')->set('key2','value');
   }
 }
