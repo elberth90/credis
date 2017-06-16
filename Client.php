@@ -44,7 +44,6 @@ class CredisException extends Exception
 /**
  * Credis_Client, a lightweight Redis PHP standalone client and phpredis wrapper
  *
- * Server/Connection:
  * @method Credis_Client pipeline()
  * @method Credis_Client multi()
  * @method array         exec()
@@ -55,7 +54,6 @@ class CredisException extends Exception
  * @method array         role()
  * @method array         time()
  *
- * Keys:
  * @method int           del(string $key)
  * @method int           exists(string $key)
  * @method int           expire(string $key, int $seconds)
@@ -68,7 +66,6 @@ class CredisException extends Exception
  * @method int           ttl(string $key)
  * @method string        type(string $key)
  *
- * Scalars:
  * @method int           append(string $key, string $value)
  * @method int           decr(string $key)
  * @method int           decrBy(string $key, int $decrement)
@@ -88,7 +85,6 @@ class CredisException extends Exception
  * @method int           setRange(string $key, int $offset, int $value)
  * @method int           strLen(string $key)
  *
- * Sets:
  * @method int           sAdd(string $key, mixed $value, string $valueN = null)
  * @method int           sRem(string $key, mixed $value, string $valueN = null)
  * @method array         sMembers(string $key)
@@ -104,7 +100,6 @@ class CredisException extends Exception
  * @method int           sInterStore(string $dest, string $key1, string $key2 = null)
  * @method int           sDiffStore(string $dest, string $key1, string $key2 = null)
  *
- * Hashes:
  * @method bool|int      hSet(string $key, string $field, string $value)
  * @method bool          hSetNx(string $key, string $field, string $value)
  * @method bool|string   hGet(string $key, string $field)
@@ -118,7 +113,6 @@ class CredisException extends Exception
  * @method bool          hMSet(string $key, array $keysValues)
  * @method array         hMGet(string $key, array $fields)
  *
- * Lists:
  * @method array|null    blPop(string $keyN, int $timeout)
  * @method array|null    brPop(string $keyN, int $timeout)
  * @method array|null    brPoplPush(string $source, string $destination, int $timeout)
@@ -137,7 +131,6 @@ class CredisException extends Exception
  * @method int           rPush(string $key, mixed $value, mixed $valueN = null)
  * @method int           rPushX(string $key, mixed $value)
  *
- * Sorted Sets:
  * @method int           zCard(string $key)
  * @method array         zRangeByScore(string $key, mixed $start, mixed $stop, array $args = null)
  * @method array         zRevRangeByScore(string $key, mixed $start, mixed $stop, array $args = null)
@@ -146,11 +139,9 @@ class CredisException extends Exception
  * @method array         zRevRange(string $key, mixed $start, mixed $stop, array $args = null)
  * TODO
  *
- * Pub/Sub
  * @method int           publish(string $channel, string $message)
  * @method int|array     pubsub(string $subCommand, $arg = NULL)
  *
- * Scripting:
  * @method string|int    script(string $command, string $arg1 = null)
  * @method string|int|array|bool eval(string $script, array $keys = NULL, array $args = NULL)
  * @method string|int|array|bool evalSha(string $script, array $keys = NULL, array $args = NULL)
